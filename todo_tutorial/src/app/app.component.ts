@@ -8,22 +8,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent /*implements OnInit*/ {
 
-  constructor(private todoService: TodoService) { }
+  constructor(/*private todoService: TodoService*/) { }
 
   // public newTodo: Todo = new Todo()
 
   // todosList: Todo[];
   // editTodos: Todo[] = [];
 
-  ngOnInit(): void {
-    // this.todoService.getToDos()
-    //   .subscribe(todos => {
-    //     this.todosList = todos
-    //     console.log(todos)
-    //   })
-  }
+  // ngOnInit(): void {
+  // this.todoService.getToDos()
+  //   .subscribe(todos => {
+  //     this.todosList = todos
+  //     console.log(todos)
+  //   })
+  // }
 
   // create() {
   //   this.todoService.createTodo(this.newTodo)

@@ -32,7 +32,6 @@ export class TodoListComponent implements OnInit {
 
   onCreate(todo: TodoState) {
 
-    console.log('create todo', todo)
     this.store$.dispatch(TodoAction.CreateTodo({ payload: todo }));
 
   }

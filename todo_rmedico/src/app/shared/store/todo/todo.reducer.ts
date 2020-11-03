@@ -41,7 +41,6 @@ const reducer = createReducer(defaultState,
 
   /* create */
   on(TodoActions.CreateTodo, (state, action) => {
-    console.log(action)
     return {
       ...state,
       loading: true

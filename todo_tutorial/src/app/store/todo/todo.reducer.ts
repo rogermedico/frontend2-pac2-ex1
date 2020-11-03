@@ -20,7 +20,6 @@ const defaultState: TodoListState = {
 const reducer = createReducer(defaultState,
 
   on(TodoActions.CreateTodo, (state, action) => {
-    console.log('action', action)
     return {
       ...state,
       todos: state.todos.map(t => {
@@ -31,7 +30,6 @@ const reducer = createReducer(defaultState,
   }),
 
   on(TodoActions.CreateTodosSuccess, (state, action) => {
-    console.log('action create success', action)
     return {
       ...state,
       todos: [
@@ -52,7 +50,6 @@ const reducer = createReducer(defaultState,
   }),
 
   on(TodoActions.GetTodosSuccess, (state, action) => {
-
     return {
       ...state,
       todos: [
@@ -64,7 +61,6 @@ const reducer = createReducer(defaultState,
   }),
 
   on(TodoActions.DeleteTodo, (state, action) => {
-    console.log('action delete success', action)
     return {
       ...state,
       todos: state.todos.filter(t => t.id != action.payload.id),
@@ -72,7 +68,6 @@ const reducer = createReducer(defaultState,
   }),
 
   on(TodoActions.DeleteTodoSuccess, state => {
-
     return state;
   }),
 

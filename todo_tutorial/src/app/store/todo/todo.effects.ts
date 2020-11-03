@@ -19,7 +19,6 @@ export class TodoEffects {
 
   GetTodos$ = createEffect(() => this.actions$.pipe(
     ofType(TodoActions.TodoActionTypes.GET_TODOS),
-    tap(a => console.log('get todos effect', a)),
     mergeMap(() => this.ts.getTodos().pipe(
       map(todos => {
         return { type: TodoActions.TodoActionTypes.GET_TODOS_SUCCESS, payload: todos }
@@ -30,8 +29,7 @@ export class TodoEffects {
 
   CreateTodo$ = createEffect(() => this.actions$.pipe(
     ofType(TodoActions.TodoActionTypes.CREATE_TODO),
-    tap(a => console.log('crcreate todo effect', a)),
-    mergeMap((action: { type: string, payload: Todo }) => this.ts.createTodo(action.payload).pipe(
+    mergeMap((action: { type: string, payload: TodoState }) => this.ts.createTodo(action.payload).pipe(
       map(todo => {
         return { type: TodoActions.TodoActionTypes.CREATE_TODO_SUCCESS, payload: todo }
       }),

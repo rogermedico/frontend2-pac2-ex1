@@ -22,25 +22,24 @@ export class TodoListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.todo)
     this.userTodo = { ...this.todo };
   }
 
-  createTodo(todo) {
+  createTodo(todo: TodoState) {
     this.created.emit(todo)
   }
 
 
-  editTodo(todo) {
+  editTodo() {
     this.userTodo.editing = !this.userTodo.editing;
   }
 
-  completeTodo(todo) {
+  completeTodo(todo: TodoState) {
     this.completed.emit(todo)
   }
 
 
-  editTodoSubmit(todo) {
+  editTodoSubmit() {
     this.edited.emit(this.userTodo);
   }
 
