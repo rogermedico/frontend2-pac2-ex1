@@ -1,0 +1,46 @@
+.todo-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  max-width: 35%;
+  text-align: left;
+  border: 1px solid #9b9b9b;
+  border-radius: 10px;
+}
+
+.title-edit-container,
+.description-edit-container {
+  margin: 15px;
+  display:block;
+}
+
+.title-input {
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+display:block;
+width: 20%;
+}
+
+.description-input {
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+display: block;
+width: 20%;
+}
+
+.actions {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.action-button {
+  margin-left: 1rem;
+  padding: 5px 15px;
+}

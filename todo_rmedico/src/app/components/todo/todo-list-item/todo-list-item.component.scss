@@ -1,0 +1,45 @@
+.title {
+  color: rgb(20, 100, 150);
+  display: inline-block;
+  margin-right: 1rem;
+  margin-top:0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.date {
+  font-size: small;
+  color: #9b9b9b;
+}
+
+.actions {
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+.action-button {
+  margin-left: 1rem;
+  padding: 5px 15px;
+}
+
+.title-edit-container,
+.description-edit-container {
+  margin: 15px;
+  display:block;
+}
+
+.title-input {
+  margin-top: 0.5rem;
+display:block;
+width: 100%;
+}
+
+.description-input {
+  margin-top: 0.5rem;
+display: block;
+width: 100%;
+}

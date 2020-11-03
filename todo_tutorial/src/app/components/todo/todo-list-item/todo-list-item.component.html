@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="card-body" *ngIf="userTodo" [class.done]="userTodo.status == 'done'" [class.selected]="userTodo.selected"
+    [class.loading]="userTodo.loading" [class.editing]="userTodo.editing" [class.edited]="userTodo.edited"
+    [class.error]="userTodo.error">
+
+    <div class="row">
+      <ng-container *ngIf="!userTodo.create && !userTodo.editing">
+
+        <div class="col-md-3">
+
+          <p>{{userTodo.title}}</p>
+        </div>
+
+        <div class="col-md-2">
+
+          <p>{{userTodo.description}}</p>
+        </div>
+
+        <div class="col-md-2">
+          <p>{{userTodo.date | date}}</p>
+        </div>
+
+        <div class="col-md-2">
+          <p>{{userTodo.status }}</p>
+        </div>
+
+      </ng-container>
+
+      <ng-container *ngIf="userTodo.create || userTodo.editing">
+        <div class="col-md-3">
+          <input type="text" name="title" id="title" [(ngModel)]="userTodo.title">
+        </div>
+
+        <div class="col-md-4">
+
+          <input type="text" style="width: 100%;" name="description" id="description"
+            [(ngModel)]="userTodo.description">
+        </div>
+
+
+        <div class="col-md-2">
+          <p>{{userTodo.status }}</p>
+        </div>
+      </ng-container>
+
+
+      <div class="col-md-3 options">
+        <ng-container *ngIf="!userTodo.create && !userTodo.editing">
+          <button class="btn btn-success" *ngIf="userTodo.status != 'done'" (click)="completeTodo(userTodo)">
+            <i class="fa fa-check"></i>
+          </button>
+          <button class="btn btn-primary" (click)="editTodo(userTodo)">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="btn btn-danger" (click)="this.deleted.emit(userTodo);">
+            <i class="fa fa-trash"></i>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="userTodo.create">
+          <button class="btn btn-success" (click)="createTodo(userTodo)">
+            Create
+          </button>
+        </ng-container>
+
+        <ng-container *ngIf="userTodo.editing">
+
+          <button class="btn btn-primary" (click)="editTodoSubmit(userTodo)">
+            Submit
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

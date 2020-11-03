@@ -1,0 +1,26 @@
+<ng-container *ngIf="!newTodoFlag">
+  <div class="todo-container" *ngFor="let todo of (todos$ | async );let i=index">
+    <app-todo-list-item [todo]="todo" (deleteTodo)="deleteTodo($event)" (saveEditedTodo)="saveEditedTodo($event)"
+      (statusToggleTodo)="statusToggleTodo($event)">
+    </app-todo-list-item>
+  </div>
+  <div class="actions">
+    <button class="action-button" type="button" (click)="newTodo()">NEW TODO</button>
+  </div>
+</ng-container>
+<ng-container *ngIf="newTodoFlag">
+  <form [formGroup]="todoForm" (ngSubmit)="saveNewTodo()">
+    <label class="title-edit-container">
+      Title:
+      <input class="title-input" type="text" placeholder="Title" name="title" formControlName="title">
+    </label>
+    <label class="description-edit-container">
+      Description:
+      <textarea class="description-input" name="description" formControlName="description"></textarea>
+    </label>
+    <div class="actions">
+      <button class="action-button" type="submit">CREATE</button>
+      <button class="action-button" type="button" (click)="cancelNewTodo()">CANCEL</button>
+    </div>
+  </form>
+</ng-container>

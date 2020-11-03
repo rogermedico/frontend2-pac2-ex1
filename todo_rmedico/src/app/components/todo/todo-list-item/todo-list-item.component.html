@@ -1,0 +1,25 @@
+<ng-container *ngIf="!editingTodo">
+  <h2 [ngClass]="{'done': todo.status}" class="title" (click)="doStatusToggle()">{{todo.title}}</h2>
+  <span class="date">{{todoDateString}}</span>
+  <div class="description">{{todo.description}}</div>
+  <div class="actions">
+    <button class="action-button" (click)="doEditTodo()">EDIT</button>
+    <button class="action-button" (click)="doDeleteTodo()">DELETE</button>
+  </div>
+</ng-container>
+<ng-container *ngIf="editingTodo">
+  <form [formGroup]="todoForm" (ngSubmit)="doSaveEditedTodo()">
+    <label class="title-edit-container">
+      Title:
+      <input class="title-input" type="text" placeholder="Title" name="title" formControlName="title">
+    </label>
+    <label class="description-edit-container">
+      Description:
+      <textarea class="description-input" name="description" formControlName="description"></textarea>
+    </label>
+    <div class="actions">
+      <button class="action-button" type="submit">SAVE</button>
+      <button class="action-button" type="button" (click)="doCancelEditedTodo()">CANCEL</button>
+    </div>
+  </form>
+</ng-container>
