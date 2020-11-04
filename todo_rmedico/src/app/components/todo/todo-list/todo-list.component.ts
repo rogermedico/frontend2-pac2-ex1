@@ -14,7 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TodoListComponent {
 
-  public todos$: Observable<any> = this.store$.select(TodoSelectors.selectAll);
+  public todos$: Observable<any> = this.store$.select(TodoSelectors.selectTodos);
   public newTodoFlag: boolean = false;
   public todoForm: FormGroup;
 

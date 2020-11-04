@@ -7,7 +7,7 @@ import { Todo } from 'src/app/shared/models/todo.model';
   templateUrl: './todo-list-item.component.html',
   styleUrls: ['./todo-list-item.component.scss']
 })
-export class TodoListItemComponent implements OnInit {
+export class TodoListItemComponent {
 
   @Input() todo: Todo;
   @Output() statusToggleTodo = new EventEmitter<Todo>();
@@ -15,20 +15,9 @@ export class TodoListItemComponent implements OnInit {
   @Output() deleteTodo = new EventEmitter<number>();
 
   public editingTodo: boolean = false;
-  public descriptionPlaceholder: string = 'TODO description...';
-  public todoDateString: string;
   public todoForm: FormGroup;
 
   constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    const todoDate = new Date(this.todo.date);
-    this.todoDateString = ('0' + todoDate.getDate()).slice(-2) + '/'
-      + ('0' + (todoDate.getMonth() + 1)).slice(-2) + '/'
-      + todoDate.getFullYear() + ' '
-      + ('0' + (todoDate.getHours() + 1)).slice(-2) + ':'
-      + ('0' + (todoDate.getMinutes() + 1)).slice(-2);
-  }
 
   createForm() {
     this.todoForm = this.fb.group({

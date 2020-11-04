@@ -1,6 +1,6 @@
 <ng-container *ngIf="!editingTodo">
   <h2 [ngClass]="{'done': todo.status}" class="title" (click)="doStatusToggle()">{{todo.title}}</h2>
-  <span class="date">{{todoDateString}}</span>
+  <span class="date">{{todo.date | date:'d/MM/yyyy HH:mm'}}</span>
   <div class="description">{{todo.description}}</div>
   <div class="actions">
     <button class="action-button" (click)="doEditTodo()">EDIT</button>
