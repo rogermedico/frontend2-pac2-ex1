@@ -9,7 +9,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/services/in-memory-data.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './shared/store/root.reducer';
 import { TodoService } from './shared/services/todo.service';
 import { TodoEffects } from './shared/store/todo/todo.effects';
@@ -30,8 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       InMemoryDataService, { dataEncapsulation: false }
     ),
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([TodoEffects]),
-    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([TodoEffects])
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
