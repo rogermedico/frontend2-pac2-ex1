@@ -98,7 +98,7 @@ const reducer = createReducer(defaultState,
   on(TodoActions.StatusToggleTodoSuccess, (state, action) => ({
     ...state,
     todos: state.todos.map(t => {
-      if (t.id == action.todo.id) t.status = !t.status;
+      if (t.id == action.todo.id) return { ...t, status: !t.status };
       return t;
     }),
     loading: false

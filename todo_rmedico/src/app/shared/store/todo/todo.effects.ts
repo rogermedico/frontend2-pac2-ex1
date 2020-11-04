@@ -61,9 +61,9 @@ export class TodoEffects {
     ofType(TodoActions.TodoActionTypes.STATUS_TOGGLE_TODO),
     mergeMap((action: { type: string, todo: Todo }) => this.ts.editTodo({ ...action.todo, status: !action.todo.status }).pipe(
       map(() => {
-        return { type: TodoActions.TodoActionTypes.UPDATE_TODO_SUCCESS, todo: { ...action.todo, status: !action.todo.status } }
+        return { type: TodoActions.TodoActionTypes.STATUS_TOGGLE_TODO_SUCCESS, todo: { ...action.todo, status: !action.todo.status } }
       }),
-      catchError(() => of({ type: TodoActions.TodoActionTypes.UPDATE_TODO_ERROR }))
+      catchError(() => of({ type: TodoActions.TodoActionTypes.STATUS_TOGGLE_TODO_ERROR }))
     ))
   ));
 
